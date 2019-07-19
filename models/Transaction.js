@@ -28,15 +28,15 @@ const TransactionSchema = new Schema({
         required: true
     },
     amount: {
-        type: String,
+        type: Number,
         required: true
     },
     timeStampCreated: {
-        type: String,
+        type: Date,
         required: true
     },
     timeStampProcessed: {
-        type: String,
+        type: Date,
         required: true,
         default:Date.now()
     },

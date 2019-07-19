@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const config = require('./db');
 const users = require('./routes/user');
 const jobs = require('./routes/job');
 const connection='mongodb://cryptoAdmin:8812016881@cluster0-shard-00-00-l9tsd.mongodb.net:27017,cluster0-shard-00-01-l9tsd.mongodb.net:27017,cluster0-shard-00-02-l9tsd.mongodb.net:27017/CryptoDB?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'

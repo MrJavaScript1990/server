@@ -27,17 +27,19 @@ module.exports = function validateRegisterInput(data) {
     if(Validator.isEmpty(data.email)) {
         errors.email = 'Email is required';
     }
-
-    if(!Validator.isLength(data.password, {min: 6, max: 30})) {
-        errors.password = 'Password must have 6 chars';
+    if(!Validator.isLength(data.email, {min: 1, max: 100})) {
+        errors.email = 'Email too long';
+    }
+    if(!Validator.isLength(data.password, {min: 6, max: 100})) {
+        errors.password = 'Password must have 6 to 100 chars';
     }
 
     if(Validator.isEmpty(data.password)) {
         errors.password = 'Password is required';
     }
 
-    if(!Validator.isLength(data.password_confirm, {min: 6, max: 30})) {
-        errors.password_confirm = 'Password must have 6 chars';
+    if(!Validator.isLength(data.password_confirm, {min: 6, max: 100})) {
+        errors.password_confirm = 'Password must have 6 to 100 chars';
     }
 
     if(!Validator.equals(data.password, data.password_confirm)) {
@@ -47,14 +49,14 @@ module.exports = function validateRegisterInput(data) {
     if(Validator.isEmpty(data.password_confirm)) {
         errors.password_confirm = 'Password is required';
     }
-    if(!Validator.isLength(data.bitcoinWalletId, { min: 32, max: 32 })) {
-        errors.bitcoinWalletId = 'Bitcoin Wallet ID is 32 chars';
+    if(!Validator.isLength(data.bitcoinWalletId, { min: 26, max: 35 })) {
+        errors.bitcoinWalletId = 'Bitcoin Wallet ID is between 26 and 32 chars';
     }
     if(Validator.isEmpty(data.bitcoinWalletId)) {
         errors.bitcoinWalletId = 'Bitcoin Wallet field is required';
     }
-    if(!Validator.isLength(data.ethereumWalletId, { min: 32, max: 32 })) {
-        errors.ethereumWalletId = 'Ethereum Wallet ID is 32 chars';
+    if(!Validator.isLength(data.ethereumWalletId, { min: 42, max: 42 })) {
+        errors.ethereumWalletId = 'Ethereum Wallet ID is 42 chars';
     }
     if(Validator.isEmpty(data.ethereumWalletId)) {
         errors.ethereumWalletId = 'Ethereum Wallet field is required';

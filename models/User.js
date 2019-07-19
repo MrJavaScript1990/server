@@ -31,7 +31,7 @@ const UserSchema = new Schema({
         required: true
     },
     bitcoinBalance: {
-        type: String,
+        type: Number,
         required: true
     },
     ethereumWalletId: {
@@ -39,7 +39,7 @@ const UserSchema = new Schema({
         required: true
     },
     ethereumBalance: {
-        type: String,
+        type: Number,
         required: true
     },
     description: {

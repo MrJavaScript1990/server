@@ -21,7 +21,7 @@ module.exports = function validateTransferInput(data) {
         errors.dstUser = 'Email is invalid';
     }
     if(data.currencyType!=='B' && data.currencyType!=='E') {
-        errors.currencyType = 'Currency type is invalid ';
+        errors.currencyType = 'Currency type is invalid Capital "B" for Bitcoin and Capital "E" for Ethereum';
     }
     if(Validator.isEmpty(data.amount)) {
         errors.amount = 'Amount is required';
