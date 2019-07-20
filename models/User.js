@@ -50,7 +50,7 @@ const UserSchema = new Schema({
         type: String,
     },
     maxTransferLimit: {
-        type: String,
+        type: Number,
         required: true
     },
 
