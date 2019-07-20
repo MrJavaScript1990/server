@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="657c3a20-6ea6-4089-a284-37598482e11f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Transaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validation/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/validation/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validation/transfer.js" beforeDir="false" afterPath="$PROJECT_DIR$/validation/transfer.js" afterDir="false" />
-    </list>
+    <list default="true" id="657c3a20-6ea6-4089-a284-37598482e11f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -282,16 +276,15 @@
       <updated>1563342141347</updated>
       <workItem from="1563342144424" duration="56487000" />
       <workItem from="1563548573315" duration="313000" />
-      <workItem from="1563576249199" duration="4052000" />
+      <workItem from="1563576249199" duration="4426000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60852000" />
+    <option name="totallyTimeSpent" value="61226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23859881" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -308,7 +301,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="GraphQL" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.017021276" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35177305" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
