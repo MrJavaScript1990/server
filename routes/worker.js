@@ -14,12 +14,16 @@ const Transaction = require('../models/Transaction');
 //unic uid for transactions
 const uuidv4=require('uuid/v4');
 
-
+const redishost='redistest-nparooei-2d67.aivencloud.com'
 let queue = kue.createQueue({
     //redis server address
     redis: {
-        host: '127.0.0.1',
-        port: 6379
+        //host: redishost,
+        //port: 26232,
+        //password:'r3hkha09rdtiavyu',
+        options:{
+            url:'rediss://default:r3hkha09rdtiavyu@redistest-nparooei-2d67.aivencloud.com:26232'
+        }
     }
 });
 
