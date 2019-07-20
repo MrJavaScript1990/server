@@ -1,26 +1,44 @@
+/*
+ The Worker module
+ i used kue to create a list of jobs that uses the FCFS algorithm
+ kue works with redis so you should have redis installed in order to test
+*/
+
+// main Queue library
 const kue = require('kue');
+
+//data models
 const User = require('../models/User');
 const Transaction = require('../models/Transaction');
+
+//unic uid for transactions
 const uuidv4=require('uuid/v4');
+
+
 let queue = kue.createQueue({
+    //redis server address
     redis: {
         host: '127.0.0.1',
         port: 6379
     }
 });
 
-
+/*
+ This function will create a job and assign it to the Queue
+ on the process if job finishes with out error it just returns the transaction details but
+ if job finishes with error it will returns the transaction details and error message
+*/
 let newJob=function (data,callback) {
     let job = queue.create('new_job',data);
     job.on('complete', (err) => {
-        if ((err.errText===''))
+        if ((err.errText===''))  //transaction finished with no errors
         {
             err.transactionDetails.state='Completed';
             const newTransaction=new Transaction(err.transactionDetails);
             newTransaction.save().then(callback(err))
 
         }
-        else{
+        else{                   //transaction finished with errors
             err.transactionDetails.state='Failed';
             err.transactionDetails.errMessage=err.errText;
             const newTransaction=new Transaction(err.transactionDetails);
@@ -32,7 +50,16 @@ let newJob=function (data,callback) {
 }
 
 queue.process('new_job', function (job, done) {
-
+    /*
+        the body of every single job
+        it consist of some conditionals about the job like
+        is Sender a valid user?
+        is Receiver exist?
+        sender has Bitcoins to send?
+        etc...
+        if any of conditions is false the job will ended with an error on the
+        contrary it will does the transaction inside the DB and returns the reference
+    */
     const {res,srcUser,dstUser,currencyType,amount,timeStampCreated}=job.data;
     let transactionDetails={
          uid:uuidv4()
