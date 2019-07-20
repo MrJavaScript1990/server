@@ -1,3 +1,7 @@
+
+/*
+    A series of validation based on type and length
+ */
 const Validator = require('validator');
 const isEmpty = require('./isEmpty');
 

@@ -1,3 +1,6 @@
+/*
+    Check if the parametr is empty or not
+*/
 const isEmpty = (value) => {
     return (
         value === undefined ||

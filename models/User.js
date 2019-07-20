@@ -1,3 +1,7 @@
+/*
+  DataBase Schema to store the Users
+*/
+
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;

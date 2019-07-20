@@ -1,3 +1,7 @@
+/*
+  In this file we handle the Authentication process
+  We use JWT web tokens and passport plus mongodb
+*/
 const JWTStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 const mongoose = require('mongoose');

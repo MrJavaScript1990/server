@@ -1,17 +1,40 @@
+//express framework and router
 const express = require('express');
 const router = express.Router();
+
+//library to generate Gravatar URLs
 const gravatar = require('gravatar');
+
+//library to Encrypt the passwords
 const bcrypt = require('bcryptjs');
+
+//library to work with JSON Web Tokens
 const jwt = require('jsonwebtoken');
+
+//Main Library for Auth
 const passport = require('passport');
+
+//library to create unic ID's
 const uuidv4 = require('uuid/v4');
+
+//helper functions to validate data
 const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
 
 const User = require('../models/User');
 
 router.post('/register', function (req, res) {
+
+    /*
+        this function checks if the email is not already in the database and
+        create new hashcode based on password that user provided and add it to the database
+        after that it returns the user object to the client
+    */
     const email = req.body.email.trim().toLowerCase();
+
+    /*
+        Check if the data from client is valid
+    */
     const {errors, isValid} = validateRegisterInput(req.body);
 
     if (!isValid) {
@@ -67,6 +90,11 @@ router.post('/register', function (req, res) {
 
 router.post('/login', (req, res) => {
 
+    /*
+        this function checks if the email is  in the database and
+        create new JWT Token and make it valid for 3600 seconds and
+        send it back to the the client
+    */
     const {errors, isValid} = validateLoginInput(req.body);
 
     if (!isValid) {
@@ -112,12 +140,12 @@ router.post('/login', (req, res) => {
         });
 });
 
-router.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
-    return res.json({
-        id: req.user.id,
-        name: req.user.name,
-        email: req.user.email
-    });
-});
+// router.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
+//     return res.json({
+//         id: req.user.id,
+//         name: req.user.name,
+//         email: req.user.email
+//     });
+// });
 
 module.exports = router;
