@@ -18,11 +18,11 @@ const redishost='redistest-nparooei-2d67.aivencloud.com'
 let queue = kue.createQueue({
     //redis server address
     redis: {
-        //host: redishost,
-        //port: 26232,
-        //password:'r3hkha09rdtiavyu',
+        host: redishost,
+        port: 26232,
         options:{
-            url:'rediss://default:r3hkha09rdtiavyu@redistest-nparooei-2d67.aivencloud.com:26232'
+            tls:true,
+            password:'r3hkha09rdtiavyu',
         }
     }
 });
