@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const path = require('path');
 //We Use Passport for Authentication
 const passport = require('passport');
 
@@ -24,6 +24,10 @@ app.use(passport.initialize());
 require('./passport')(passport);
 
 //decode the post request to our api correctly
+app.use(express.static(path.join(__dirname, 'Client/build')));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname+'/Client/build/index.html'));
+});
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
