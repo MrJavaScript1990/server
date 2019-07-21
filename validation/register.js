@@ -32,7 +32,7 @@ module.exports = function validateRegisterInput(data) {
         errors.email = 'Email is required';
     }
     if(!Validator.isLength(data.email, {min: 1, max: 100})) {
-        errors.email = 'Email too long';
+        errors.email = 'Email is invalid';
     }
     if(!Validator.isLength(data.password, {min: 6, max: 100})) {
         errors.password = 'Password must have 6 to 100 chars';
